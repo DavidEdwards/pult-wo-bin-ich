@@ -3,15 +3,30 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start:dry": "DRY_RUN=true node index.js",
+    "auth-server": "node auth-server.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier -w .",
+    "test": "NODE_ENV=test node --test --test-timeout=30000",
+    "test:live": "NODE_ENV=test LIVE_E2E=true node --test --test-timeout=600000"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Unlicense",
   "description": "",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@slack/web-api": "^7.8.0",
-    "dotenv": "^16.4.7",
-    "node-fetch": "^3.3.2"
+    "canvas": "^3.1.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "prettier": "^3.3.3"
   }
 }
